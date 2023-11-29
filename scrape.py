@@ -32,10 +32,11 @@ def get_days_stats(date):
         with open(file_name, "w+", encoding='utf-8') as f:
             f.write(response.text)
         print(f"File {file_name} created.")
-    else:
-        print(f"File {file_name} already exists.")
+    #else:
+        #print(f"File {file_name} already exists.")
     with open(file_name, encoding='utf-8') as f:
         page = f.read()
+
     soup = BeautifulSoup(page, "html.parser")
     if soup.find(id="stats"):
         stats_table = soup.find_all(id="stats")
@@ -48,7 +49,6 @@ def get_days_stats(date):
         daily_stats = daily_stats.rename(columns={'Unnamed: 3':'Home/Away', 'Unnamed: 5':'Win/Loss'})
         daily_stats['Home/Away'] = daily_stats['Home/Away'].apply(lambda x: 'A' if x == '@' else 'H')
 
-        print(daily_stats)
         daily_csv = f'data\daily_stats_{filename_date}.csv'
         if not os.path.exists(daily_csv):
             daily_stats.to_csv(f'data\daily_stats_{filename_date}.csv', index=False)
