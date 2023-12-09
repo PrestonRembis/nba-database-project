@@ -1,5 +1,5 @@
 # nba-database-project
-This is my final project for CS4620 Database Systems, which is a data visualization tool connected to a database of nba player daily statistics.
+This is my final project for CS4620 Database Systems, which is a data visualization tool connected to a database of nba player daily statistics. It also displays league leaders, and some team stats.
 
 The main purpose is to see trends of players for the purpose of fantasy and sports betting.
 
@@ -10,27 +10,26 @@ Required python libraries are:
 - pandas
 - requests
 - streamlit
+- sqlite3
 
 Use pip to install the libraries in own venv, which can be created with:
 ```
 python -m venv venv
+.venv\Scripts\activate # Activates virtual environment (on windows)
 ```
 
-To run scraping program to gather all daily stats until previous day (need data file which will hold all html code (temp function) and csv files):
+Then run the following to install all needed libraries:
 ```
-python .\scrape.py
+pip -r requirements.txt
 ```
 
 To run frontend with streamlit:
 ```
 streamlit run main.py
 ```
+This will also scrape data into database as it includes the various steps of doing so
 
 
 # Database
-The database is currently on my personal machine but will eventually be pushed to the repository. Currently importing the csv files into the database using:
-```
-sqlite3 _.db # Connecting sqlite3 to database
-.mode csv
-.import daily_stats_month_day_year.csv dailyStats
-```
+The database is currently hosted locally, it is included in database which isn't ideal. Mainly for ease of access. In perfect world it would be hosted elsewhere and more protected
+

@@ -1,10 +1,10 @@
 import os
 import pandas as pd
 
-# Directory where your daily CSV files are stored
+# Where csv files are stored
 directory = "data"
 
-# Initialize an empty list to store all dataframes
+# Initial empty data fram
 dfs = []
 
 # Loop through all files in the directory
@@ -23,8 +23,11 @@ for filename in os.listdir(directory):
         df['Date'] = date  # Update 'Date' column
         dfs.append(df)
 
-# Concatenate all dataframes into a single dataframe
+# Combine all dataframes into one big one
 combined_data = pd.concat(dfs, ignore_index=True)
 
-# Save the combined dataframe to a new CSV file
+# Save the combined dataframe to a new file
 combined_data.to_csv("allDailyStats.csv", index=False)
+
+# Update message
+print('Combining data into csv file...')
