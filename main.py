@@ -25,6 +25,7 @@ data['Ast+Reb'] = data['AST'] + data['REB']
 players = data['Player'].unique()
 stats = data.columns[6:] # Getting columns index 6 and on
 stats = stats.drop(['Date'])
+stats = stats.drop(['+/-'])
 
 # Sidebar widgets for user input
 selected_player = st.sidebar.selectbox('Select a player', players)

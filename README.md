@@ -15,19 +15,19 @@ Required python libraries are:
 Use pip to install the libraries in own venv, which can be created with:
 ```
 python -m venv venv
-.venv\Scripts\activate # Activates virtual environment (on windows)
+venv\Scripts\activate # Activates virtual environment (on windows)
 ```
 
 Then run the following to install all needed libraries:
 ```
-pip -r requirements.txt
+pip install -r requirements.txt
 ```
 
 To run frontend with streamlit:
 ```
 streamlit run main.py
 ```
-This will also scrape data into database as it includes the various steps of doing so
+This will also scrape data into database as it includes the various steps of doing so. So it will take a little bit to load if the database hasn't been recently updated.
 
 
 # Database
